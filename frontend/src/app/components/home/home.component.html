@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card" *ngFor="let article of articles">
+      <h2>{{article.title}}</h2>
+      <div class="fakeimg" style="height:200px;">{{article.description}}</div>
+      <p>{{article.author}}</p>
+    </div>
+  </div>
+  <div class="leftcolumn" *ngIf="noArticles">
+    <div class="card">
+      <h2>Test</h2>
+      <div class="fakeimg" style="height:200px;">Test</div>
+      <p>Test</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h3>Recipes</h3>
+      <div class="fakeimgRight" *ngFor="let recipe of recipes">
+        <button (click)="loadRecipe(recipe._id)" class="recipeInfo">{{recipe.name}}</button>
+      </div>
+      <div class="fakeimgRight" *ngIf="noRecipes">
+        Test
+      </div>
+    </div>
+  </div>
+</div>

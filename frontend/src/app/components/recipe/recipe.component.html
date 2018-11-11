@@ -1,0 +1,18 @@
+<div class="outterBox">
+  <div class="nameBox">
+    <h2>{{recipe.name}}</h2>
+  </div>
+  <br>
+  <div class="productsBox">
+    <ul class="list">
+      <li *ngFor="let product of products">
+        {{product}}
+      </li>
+    </ul>
+  </div>
+  <div class="recipeBox">
+    <h4>How to prepare:</h4>
+    <hr>
+    {{recipe.preparation}}
+  </div>
+</div>

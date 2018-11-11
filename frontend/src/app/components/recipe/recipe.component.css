@@ -1,0 +1,80 @@
+.outterBox {
+  width: 90%;
+  height: 80%;
+  text-align: center;
+  background-color: grey;
+  padding: 20px;
+  margin: auto;
+  margin-top: 30px;
+  opacity: 0.9;
+}
+
+.nameBox {
+  width: 50%;
+  height: 5%;
+  padding: 5px;
+  margin: auto;
+  margin-bottom: 30px;
+  text-align: center;
+  display: inline-block;
+}
+
+.productsBox {
+  background-color: white;
+  width: 25%;
+  height: 80%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+  float: left;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+
+.list {
+  color: black;
+  font-size: 22px;
+  padding: 0 !important;
+  width: 100%;
+  font-family: courier, monospace;
+  /* border: 1px solid #dedede; */
+}
+
+.list li {
+  list-style: none;
+  border-bottom: 1px dotted black;
+  text-indent: 25px;
+  height: auto;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+.recipeBox {
+  width: 70%;
+  height: 80%;
+  margin: auto;
+  margin-left: 5%;
+  padding: 0;
+  text-align: center;
+  float: left;
+  background-color: white;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+
+.productsBox::-webkit-scrollbar,
+.recipeBox::-webkit-scrollbar {
+  width: 8px;
+}
+
+.productsBox::-webkit-scrollbar-track,
+.recipeBox::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 300px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.productsBox::-webkit-scrollbar-thumb,
+.recipeBox::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}

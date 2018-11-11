@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+.leftcolumn {
+  float: left;
+  width: 75%;
+  max-height: 660px;
+  opacity: 0.9;
+  overflow-y: scroll;
+}
+
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+  max-height: 660px;
+  opacity: 0.9;
+  overflow-y: scroll;
+}
+
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.fakeimgRight {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 25px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+
+  .leftcolumn,
+  .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; 
+  margin-left: 1%;
+}
+
+/* Blue */
+.info {
+  border-color: #2196F3;
+  color: dodgerblue
+}
+
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+
+/* Red */
+.danger {
+  border-color: #f44336;
+  color: red
+}
+
+.danger:hover {
+  background: #f44336;
+  color: white;
+}
+
+.leftcolumn::-webkit-scrollbar,
+.rightcolumn::-webkit-scrollbar,
+.fakeimg::-webkit-scrollbar {
+  width: 8px;
+}
+
+.leftcolumn::-webkit-scrollbar-track,
+.rightcolumn::-webkit-scrollbar-track,
+.fakeimg::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 300px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.leftcolumn::-webkit-scrollbar-thumb,
+.rightcolumn::-webkit-scrollbar-thumb,
+.fakeimg::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.recipeInfo {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+}
+
+.recipeInfo {
+  border-color: grey;
+  color: grey
+}
+
+.recipeInfo:hover {
+  background: grey;
+  color: white;
+}

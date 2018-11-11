@@ -1,0 +1,9 @@
+<div class="leftcolumn">
+  <div class="card" *ngFor="let recipe of recipes">
+    <h2>{{recipe.name}}</h2>
+    <div class="fakeimg" style="height:200px;">{{recipe.preparation}}</div>
+    <br>
+    <button class="btn info" (click)="editRecipe(recipe._id)">Edit</button>
+    <button class="btn danger" (click)="deleteRecipe(recipe._id)">Delete</button>
+  </div>
+</div>

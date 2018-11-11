@@ -1,0 +1,25 @@
+<div class="container">
+  <form action="action_page.php">
+
+    <label>Dish name:</label>
+    <input type="text" id="name" value="recipe.name" #name>
+
+    <label>Products needed:</label>
+    <br />
+    <div class="productsSection">
+      <input type="text" id="product" placeholder="Product..." #product>
+      <button class="btn addProduct" (click)="addProductToProducts(product.value)">Add</button>
+      <ul id="dishProducts" class="dishProducts">
+        <li *ngFor="let product of products">
+          {{product}}
+        </li>
+      </ul>
+    </div>
+
+    <label for="subject">Preparation:</label>
+    <textarea id="preparation" placeholder="How to prepare..." style="height:200px" #preparation></textarea>
+
+    <input type="submit" value="Submit" (click)="updateRecipe(name.value)">
+
+  </form>
+</div>

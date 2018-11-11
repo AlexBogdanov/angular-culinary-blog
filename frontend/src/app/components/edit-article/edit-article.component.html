@@ -1,0 +1,16 @@
+<div class="container">
+  <form action="action_page.php">
+
+    <label>Article title:</label>
+    <input type="text" id="title" placeholder="Title..." #title>
+
+    <label>Author name:</label>
+    <input type="text" id="author" placeholder="Name..." #author>
+
+    <label for="subject">Article description:</label>
+    <textarea id="description" placeholder="Aritcle..." style="height:200px" #description></textarea>
+
+    <input type="submit" value="Submit" (click)="updateArticle(title.value, description.value, author.value)">
+
+  </form>
+</div>
