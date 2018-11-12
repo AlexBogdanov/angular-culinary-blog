@@ -2,10 +2,12 @@
   <form action="action_page.php">
 
     <label>Dish name:</label>
+    <br>
     <input type="text" id="name" placeholder="Dish name..." #name>
+    <br>
 
     <label>Products needed:</label>
-    <br />
+    <br>
     <div class="productsSection">
       <input type="text" id="product" placeholder="Product..." #product>
       <button class="btn addProduct" (click)="addProductToProducts(product.value)">Add</button>

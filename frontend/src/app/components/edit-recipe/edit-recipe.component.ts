@@ -13,8 +13,8 @@ export class EditRecipeComponent implements OnInit {
 
   id: String;
   recipe: any = {};
-  products: String[] = [];
   updateForm: FormGroup;
+  products: any[];
 
   constructor(
     private recipeService: RecipeService,
@@ -31,11 +31,6 @@ export class EditRecipeComponent implements OnInit {
 
       this.recipeService.getRecipeById(this.id).subscribe(res => {
         this.recipe = res;
-        this.updateForm.get('name').setValue(this.recipe.name);
-        this.updateForm.get('preparation').setValue(this.recipe.preparation);
-        this.updateForm.get('products').setValue(this.recipe.products);
-
-        this.recipe = this.recipeService.getRecipeById(this.id);
         this.products = this.recipe.products;
       });
     });
@@ -45,19 +40,23 @@ export class EditRecipeComponent implements OnInit {
     this.updateForm = this.fb.group({
       name: ['', Validators.required],
       preparation: ['', Validators.required],
-      products: ['', Validators.required]
+      products: [[], Validators.required]
     });
   }
 
-  updateRecipe(name, preparation, products) {
+  updateRecipe(name, preparation) {
     this.recipeService.updateRecipe(this.id, name, preparation, this.products)
-      .subscribe(() => {
-        console.log('Recipe successfully edited');
-        this.router.navigate(['/home']);
-      });
+    .subscribe(() => {
+      console.log('Recipe successfully edited');
+      this.router.navigate(['/admin/recipes']);
+    });
   }
 
   addProductToProducts(product) {
     this.products.push(product);
+  }
+
+  removeProductFromProducts(index) {
+    this.products.splice(index, 1);
   }
 }

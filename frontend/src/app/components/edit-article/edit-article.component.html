@@ -2,13 +2,13 @@
   <form action="action_page.php">
 
     <label>Article title:</label>
-    <input type="text" id="title" placeholder="Title..." #title>
+    <input type="text" id="title" value="{{article.title}}" placeholder="Title..." #title>
 
     <label>Author name:</label>
-    <input type="text" id="author" placeholder="Name..." #author>
+    <input type="text" id="author" value="{{article.author}}" placeholder="Name..." #author>
 
     <label for="subject">Article description:</label>
-    <textarea id="description" placeholder="Aritcle..." style="height:200px" #description></textarea>
+    <textarea id="description" placeholder="Aritcle..." name="description" style="height:200px" #description>{{article.description}}</textarea>
 
     <input type="submit" value="Submit" (click)="updateArticle(title.value, description.value, author.value)">
 

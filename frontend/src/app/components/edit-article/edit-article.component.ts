@@ -30,9 +30,6 @@ export class EditArticleComponent implements OnInit {
 
       this.articleService.getArticleById(this.id).subscribe(res => {
         this.article = res;
-        this.updateForm.get('title').setValue(this.article.title);
-        this.updateForm.get('description').setValue(this.article.description);
-        this.updateForm.get('author').setValue(this.article.author);
       });
     });
   }
@@ -49,7 +46,7 @@ export class EditArticleComponent implements OnInit {
     this.articleService.updateArticle(this.id, title, description, author)
       .subscribe(() => {
         console.log('Article successfully edited');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/admin/articles']);
       });
   }
 }

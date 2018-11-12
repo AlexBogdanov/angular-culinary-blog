@@ -2,7 +2,9 @@
   <form action="action_page.php">
 
     <label>Dish name:</label>
-    <input type="text" id="name" value="recipe.name" #name>
+    <br>
+    <input type="text" id="name" value="{{recipe.name}}" placeholder="Name..." #name>
+    <br>
 
     <label>Products needed:</label>
     <br />
@@ -10,16 +12,19 @@
       <input type="text" id="product" placeholder="Product..." #product>
       <button class="btn addProduct" (click)="addProductToProducts(product.value)">Add</button>
       <ul id="dishProducts" class="dishProducts">
-        <li *ngFor="let product of products">
-          {{product}}
+        <li class="productLi" *ngFor="let product of products; let index = index">
+          <p class="productLi">
+            {{product}}
+            <button class="btnRemove" (click)="removeProductFromProducts(index)">X</button>
+          </p>
         </li>
       </ul>
     </div>
 
     <label for="subject">Preparation:</label>
-    <textarea id="preparation" placeholder="How to prepare..." style="height:200px" #preparation></textarea>
+    <textarea id="preparation" placeholder="How to prepare..." style="height:200px" #preparation>{{recipe.preparation}}</textarea>
 
-    <input type="submit" value="Submit" (click)="updateRecipe(name.value)">
+    <input type="submit" value="Submit" (click)="updateRecipe(name.value, preparation.value)">
 
   </form>
 </div>

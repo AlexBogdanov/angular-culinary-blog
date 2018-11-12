@@ -20,7 +20,7 @@ textarea {
 }
 
 #product {
-  width: 93%;
+  width: 85%;
 }
 
 input[type=submit] {
@@ -64,16 +64,49 @@ input[type=submit]:hover {
   color: white;
 }
 
+.btnRemove {
+  border: 2px solid black;
+  border-radius: 100px;
+  background-color: #f44336;
+  color: black;
+  padding: 3px 7px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 80%;
+  float: right;
+  display: inline-block;
+}
+
+/* Red */
+.btnRemove {
+  border-color: #f44336;
+  color: white
+}
+
+.btnRemove:hover {
+  background: red;
+  color: white;
+}
+
+.productLi {
+  margin-left: 0%;
+  width: 95%;
+  display: inline-block;
+}
+
 .products {
   list-style-type: circle;
 }
 
 .productsSection {
   background-color: #aaa;
-  width: 100%;
+  width: 60%;
   height: 300px;
   padding: 20px;
   overflow-y: scroll;
+}
+#name {
+  width: 60%;
 }
 
 #description, #preparation {
