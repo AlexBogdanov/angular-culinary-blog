@@ -45,6 +45,7 @@ export class CreateRecipeComponent {
   }
 
   addProductToProducts(product) {
+    $('#product').val('');
     this.products.push(product);
   }
 

@@ -56,6 +56,7 @@ export class EditRecipeComponent implements OnInit {
   }
 
   addProductToProducts(product) {
+    $('#product').val('');
     this.products.push(product);
   }
 
