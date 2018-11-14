@@ -1,12 +1,27 @@
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="topnav" id="myTopnav">
+<div class="topnav" id="myTopnav" *ngIf="authService.loggedIn()">
   <a class="active" routerLink="/">Home</a>
   <a routerLink="/articles/create">Create Article</a>
   <a routerLink="/recipes/create">Create Recipe</a>
-  <a routerLink="/admin/articles">Admin Articles</a>
-  <a routerLink="/admin/recipes">Admin Recipes</a>
+  <a routerLink="/admin/articles">Redact Articles</a>
+  <a routerLink="/admin/recipes">Redact Recipes</a>
+  <div class="auth-btns">
+    <a (click)="authService.logoutUser()">Logout</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <h3>The culinary blog</h3>
+</div>
+
+<div class="topnav" id="myTopnav" *ngIf="!authService.loggedIn()">
+  <a class="active" routerLink="/">Home</a>
+  <div class="auth-btns">
+    <a routerLink="/register">Register</a>
+    <a routerLink="/login">Login</a>
+  </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>

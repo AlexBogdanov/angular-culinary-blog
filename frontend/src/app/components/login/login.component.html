@@ -1,0 +1,16 @@
+<form action="action_page.php">
+  <div class="wrapper">
+    <div class="container">
+      <label for="uname"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" #email required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" #password required>
+
+      <button type="submit" (click)="loginUser(email.value, password.value)">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember" (click)="changeCheckBox()"> Remember me
+      </label>
+    </div>
+  </div>
+</form>

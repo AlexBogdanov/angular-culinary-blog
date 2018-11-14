@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -11,14 +11,19 @@ import { EditArticleComponent } from './components/edit-article/edit-article.com
 import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
 import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-
-import { ArticleService } from './services/article.service';
-import { RecipeService } from './services/recipe.service';
 import { AdminArticlesComponent } from './components/admin-articles/admin-articles.component';
 import { AdminRecipesComponent } from './components/admin-recipes/admin-recipes.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+
+import { ArticleService } from './services/article.service';
+import { RecipeService } from './services/recipe.service';
+import { AuthService } from './services/auth.service';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { ToastrService } from './services/toastr.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -28,11 +33,12 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     CreateRecipeComponent,
     EditRecipeComponent,
     NavbarComponent,
-    FooterComponent,
     HomeComponent,
     AdminArticlesComponent,
     AdminRecipesComponent,
-    RecipeComponent
+    RecipeComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,16 @@ import { RecipeComponent } from './components/recipe/recipe.component';
   ],
   providers: [
     ArticleService,
-    RecipeService
+    RecipeService,
+    AuthService,
+    AuthGuard,
+    TokenInterceptorService,
+    ToastrService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

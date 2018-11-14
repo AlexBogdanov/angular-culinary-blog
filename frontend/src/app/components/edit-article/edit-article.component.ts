@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { ArticleService } from './../../services/article.service';
+import { ToastrService } from './../../services/toastr.service';
 
 @Component({
   selector: 'app-edit-article',
@@ -19,7 +21,8 @@ export class EditArticleComponent implements OnInit {
     private articleService: ArticleService,
     private router: Router,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastrService: ToastrService
   ) {
     this.createForm();
   }
@@ -30,6 +33,13 @@ export class EditArticleComponent implements OnInit {
 
       this.articleService.getArticleById(this.id).subscribe(res => {
         this.article = res;
+      },
+      err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            this.router.navigate(['/login']);
+          }
+        }
       });
     });
   }
@@ -47,6 +57,11 @@ export class EditArticleComponent implements OnInit {
       .subscribe(() => {
         console.log('Article successfully edited');
         this.router.navigate(['/admin/articles']);
+        this.toastSuccessEditArticle();
       });
+  }
+
+  toastSuccessEditArticle() {
+    this.toastrService.Success('Article successfully edited');
   }
 }

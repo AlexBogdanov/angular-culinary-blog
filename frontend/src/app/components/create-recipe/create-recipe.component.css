@@ -36,7 +36,17 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
-.container {
+.containerArticle {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  opacity: 0.9;
+  width: 70%;
+  margin: auto;
+  margin-top: 3%;
+}
+
+.containerRecipe {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;

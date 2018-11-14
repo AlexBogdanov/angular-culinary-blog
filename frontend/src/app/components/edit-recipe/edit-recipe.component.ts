@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { RecipeService } from './../../services/recipe.service';
+import { ToastrService } from './../../services/toastr.service';
 
 @Component({
   selector: 'app-edit-recipe',
@@ -20,7 +21,8 @@ export class EditRecipeComponent implements OnInit {
     private recipeService: RecipeService,
     private router: Router,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastrService: ToastrService
   ) {
     this.createForm();
   }
@@ -49,6 +51,7 @@ export class EditRecipeComponent implements OnInit {
     .subscribe(() => {
       console.log('Recipe successfully edited');
       this.router.navigate(['/admin/recipes']);
+      this.toastSuccessEditRecipe();
     });
   }
 
@@ -58,5 +61,9 @@ export class EditRecipeComponent implements OnInit {
 
   removeProductFromProducts(index) {
     this.products.splice(index, 1);
+  }
+
+  toastSuccessEditRecipe() {
+    this.toastrService.Success('Recipe successfully edited');
   }
 }

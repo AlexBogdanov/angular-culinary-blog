@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Article } from './../../models/article.model';
 import { ArticleService } from './../../services/article.service';
+import { ToastrService } from './../../services/toastr.service';
 
 @Component({
   selector: 'app-admin-articles',
@@ -15,7 +16,8 @@ export class AdminArticlesComponent implements OnInit {
 
   constructor(
     private articleService: ArticleService,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit() {
@@ -39,6 +41,11 @@ export class AdminArticlesComponent implements OnInit {
     this.articleService.deleteArticle(id)
       .subscribe(() => {
         this.fetchArticles();
+        this.toastSuccessDeleteArticle();
       });
+  }
+
+  toastSuccessDeleteArticle() {
+    this.toastrService.Success('Successfully deleted article');
   }
 }

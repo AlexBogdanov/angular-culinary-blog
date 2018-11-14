@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Recipe } from './../../models/recipe.model';
 import { RecipeService } from './../../services/recipe.service';
+import { ToastrService } from './../../services/toastr.service';
 
 @Component({
   selector: 'app-admin-recipes',
@@ -15,7 +16,8 @@ export class AdminRecipesComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit() {
@@ -39,6 +41,11 @@ export class AdminRecipesComponent implements OnInit {
     this.recipeService.deleteRecipe(id)
       .subscribe(() => {
         this.fetchRecipes();
+        this.toastSuccessDeleteRecipe();
       });
+  }
+
+  toastSuccessDeleteRecipe() {
+    this.toastrService.Success('Successfully deleted recipe');
   }
 }
