@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
         }
         this.articles = data;
         console.log('Data requested ...');
-        console.log(this.articles);
       });
   }
 
@@ -50,7 +49,6 @@ export class HomeComponent implements OnInit {
         }
         this.recipes = data;
         console.log('Data requested ...');
-        console.log(this.recipes);
       });
   }
   loadRecipe(id) {

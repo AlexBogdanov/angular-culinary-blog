@@ -26,16 +26,22 @@ export class AuthService {
   }
 
   loggedIn() {
-    const token = localStorage.getItem('token');
-    if (token) {
+    const localToken = localStorage.getItem('token');
+    if (localToken) {
       return true;
     } else {
-      return false;
+      const sessionToken = sessionStorage.getItem('token');
+      if (sessionToken) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
   logoutUser() {
     localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     this.router.navigate(['/home']);
     this.toastLogoutSuccess();
   }
